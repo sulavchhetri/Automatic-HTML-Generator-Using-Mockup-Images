@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h2 class="text-center mb-4">HTML Generator from Mock-Up Image</h2>
+      {% if result %}
+        <div class="alert alert-success" role="alert">
+          {{ result|safe }}
+        </div>
+      {% endif %}
+      <form method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="image">Select Image File</label>
+          <input type="file" class="form-control-file" id="image" name="image">
+        </div>
+        <button type="submit" class="btn btn-primary">Generate HTML Code</button>
+      </form>
+    </div>
+  </div>
+{% endblock %}

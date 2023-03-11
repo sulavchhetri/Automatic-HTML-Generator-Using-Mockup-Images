@@ -1,5 +1,7 @@
 """
-    This is a docstring.
+    This module is used to preprocess the coordinates location
+    of html elements present in the image and generate a html code
+    from it
 """
 import json
 import os
@@ -36,8 +38,17 @@ class Converter:
             the module.
         """
         with open(os.path.join(static_path, "output.txt"), 'r', encoding='utf-8') as file:
+            next(file)
             data = [line.strip() for line in file]
-        return data
+
+        result = []
+        for item in data:
+            item_list = item.split()
+            xmin, ymin, xmax, ymax = float(item_list[0])/640, float(
+                item_list[1])/640, float(item_list[2])/640, float(item_list[3])/640
+            result.append(" ".join([item_list[5],str(xmin), str(ymin),str(xmax), str(ymax)]))
+        
+        return result
 
     def _enrich_output(self):
         result = self.load_result()
@@ -100,3 +111,5 @@ class Converter:
         body = self.get_html_body()
         html_data = f"{self.boilerplate}{body}\n</body>\n</html>"
         return html_data
+
+

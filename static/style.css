@@ -47,6 +47,8 @@ body {
     display: flex;
     justify-content: center;
     padding-top: 10px;
+    margin-bottom: 10px;
+    
 }
 
 
@@ -59,11 +61,14 @@ body {
 }
 
 #generate_html {
-    margin-top: 30px;
-    width: 110px;
-    border-radius: 10px;
+    width: 150px;
+  
+    margin-bottom: 5px;
+    text-decoration: none;
+    border-radius: 3px;
     font-family: "Times New Roman", Times, serif;
     font-size: large;
+    text-align: center;
     background-color: #c2ccd8;
 
 }

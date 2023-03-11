@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block link %}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+{% block content %}
+<div class='container_show'>
+    <h1>The output html code of the mockup image is : </h1>
+    <div class="container_box">
+        {% if result %}
+        <div class='data'>
+            <pre>{{ result }}</pre>
+        </div>
+        {% endif %}
+    </div>
+    <a href="{{ url_for('preview_html')}}" id="generate_html" target="_blank">Preview Code</button>
+</div>
+
+{% endblock %}

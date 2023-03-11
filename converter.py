@@ -100,8 +100,3 @@ class Converter:
         body = self.get_html_body()
         html_data = f"{self.boilerplate}{body}\n</body>\n</html>"
         return html_data
-
-if __name__ == "__main__":
-    c = Converter()
-    a = c.get_html()
-    print(a)

@@ -8,7 +8,7 @@ import logging
 import io
 from PIL import Image
 from flask import Flask, render_template, request, redirect, url_for
-from converter import Converter
+from converters import Converter
 from model_loader import ModelConverter
 
 
@@ -70,6 +70,10 @@ def preview_html():
     result = get_html_from_converter()
     return render_template('preview.html', result=result)
 
+@app.route('/aboutus')
+def about_us():
+    return render_template('aboutus.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
+

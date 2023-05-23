@@ -27,7 +27,18 @@ class ModelConverter:
         """
         self.model.conf = 0.4
         result = self.model(image, size=640)
-        dataframe = result.pandas().xyxy[0]
-        dataframe.to_csv(os.path.join(
+        df = result.pandas().xyxy[0]
+        df['xmin']=df['xmin']+10
+        df['ymin']=df['ymin']
+        df['width'] = (df['xmax'] - df['xmin'])
+        df['height'] = (df['ymax'] - df['ymin'])
+        df = df.sort_values(by='ymin')
+        df.drop(['xmax','ymax'], axis=1, inplace=True)
+        cols = df.columns.tolist()
+        cols.insert(2, cols.pop(cols.index('width')))
+        cols.insert(3, cols.pop(cols.index('height')))
+        df = df.reindex(columns=cols)
+        print(df)
+        df.to_csv(os.path.join(
             static_path, 'output.txt'), sep=' ', index=False)
 

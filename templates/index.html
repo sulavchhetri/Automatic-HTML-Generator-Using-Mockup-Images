@@ -1,26 +1,53 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body style="background-image: url('static/bg.jpg')">
 
-{% block link %}
-<link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
-{% endblock %}
-{% block content %}
-<div class="combox">
-    <div class="para">
-        <h2>
-            New idea to change your Skectch to Code
-        </h2>
-    </div>
-    <div class="photo">
-        <h3>Upload Skectch</h3>
-        <form  method="POST" enctype="multipart/form-data">
-            <div class="box">
-                <div class="hand">
-                    <input type="file" id="myFile" name="image" style="color:black; font-size: larger;">
-                </div>
-                <input type="submit" style=" font-size: larger;">
+  <div class="container">
+    <header class="header">
+      <div class="h1">
+         <h1 id="main_heading">Sketch2Code</h1>
+      </div>
+      <div class="nav">
+        <nav>
+          <ul>
+            <li><a href="{{url_for('about_us')}}" style="text-decoration: none; color: #9b9999;">About Us</a></li>
+           
+            <!-- <li></li>
+            <li></li> -->
+          </ul>
+        </nav>
+      </div>
+    </header>
+      <div class="box">
+        <div class="hero-container">
+          <h3>Transforming Vision into Reality: Expert HTML Coding for Your Mockup Image</h3>
+        </div>
+        <form  method="POST"  enctype="multipart/form-data">
+          <label for="file-upload">
+            <div class="image">
+              <img src="{{ url_for('static', filename='upload.png') }}" alt="" >
+              <input type="file" id="file-upload"  name="image">
+              <input type="submit" value="Upload" style="font-size: larger; background-color: rgb(14, 14, 73);border-radius: 10px;color:#9b9999;padding: 10px;margin-left: -55px;">
             </div>
+          </label>
         </form>
-    </div>
-</div>
+        
+         
+    
+      </div>
 
-{% endblock %}
+      
+  </div>
+  
+</body>
+</html>

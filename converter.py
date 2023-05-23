@@ -66,6 +66,7 @@ class Converter:
             This method is used to read the text output.
         """
         result_dict = defaultdict(list)
+        
         for item in self.result:
             row_data = {}
             label, column, row = item.split()
